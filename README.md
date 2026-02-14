@@ -140,3 +140,40 @@ Configured upstream servers in Nginx and verified container connectivity.
 - Stateless application containers enable horizontal scaling.
 - Load balancing improves reliability and performance.
 
+# Stage 5 — Monitoring with Prometheus and Grafana
+
+## Objective
+Configure a monitoring solution to collect and visualize system and container metrics.
+
+## Architecture
+Prometheus scrapes metrics from exporters and stores time-series data.
+Grafana connects to Prometheus to visualize metrics.
+
+Prometheus
+   ↓
+Exporter (cAdvisor)
+   ↓
+Grafana Dashboard
+
+## Steps Followed
+- Added Prometheus and Grafana services using Docker Compose.
+- Configured Prometheus scrape targets.
+- Connected Grafana to Prometheus as a data source.
+- Imported dashboards and created custom panels.
+
+## Decisions & Tradeoffs
+- Prometheus chosen for time-series monitoring.
+- Grafana used for visualization and dashboarding.
+
+## Challenges Encountered
+- Container-level metrics were not visible when running Docker Desktop with WSL.
+- cAdvisor was able to access host-level metrics but not Docker container cgroups.
+
+## Resolution
+Investigation revealed that Docker Desktop runs containers inside an isolated virtual machine, preventing cAdvisor from accessing container-level metrics from within WSL.
+The monitoring pipeline itself was verified to be functioning correctly through Prometheus queries.
+
+## Learnings
+- Monitoring visibility depends on runtime environment.
+- Exporters must run in the same kernel context as monitored containers.
+- Observability systems must be designed with infrastructure boundaries in mind.
