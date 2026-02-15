@@ -10,11 +10,11 @@ Nginx distributes incoming requests among the Rails instances.
 
 Browser<br>
        ↓
-<br>Nginx
+<br>Nginx<br>
        ↓
 <br>Rails Container 1
 <br>Rails Container 2
-<br>Rails Container 3
+<br>Rails Container 3<br>
        ↓
 <br>MySQL Container
 
