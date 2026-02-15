@@ -8,19 +8,15 @@ Multiple Rails containers run simultaneously.
 All containers connect to the same MySQL database.
 Nginx distributes incoming requests among the Rails instances.
 
-Browser
-
+Browser<br>
    ↓
-Nginx
-
+<br>Nginx
    ↓
-Rails Container 1
+<br>Rails Container 1
 Rails Container 2
 Rails Container 3
-
    ↓
-   
-MySQL Container
+<br>MySQL Container
 
 ## Steps Followed
 - Scaled Rails service using Docker Compose.
