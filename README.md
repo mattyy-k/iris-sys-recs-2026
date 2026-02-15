@@ -9,13 +9,13 @@ All containers connect to the same MySQL database.
 Nginx distributes incoming requests among the Rails instances.
 
 Browser<br>
-   ↓
+       ↓
 <br>Nginx
-   ↓
+       ↓
 <br>Rails Container 1
-Rails Container 2
-Rails Container 3
-   ↓
+<br>Rails Container 2
+<br>Rails Container 3
+       ↓
 <br>MySQL Container
 
 ## Steps Followed
